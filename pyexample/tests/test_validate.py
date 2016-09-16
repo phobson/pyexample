@@ -23,3 +23,16 @@ def test_axes_object_with_None():
     fig1, ax1 = validate.axes_object(None)
     assert isinstance(ax1, pyplot.Axes)
     assert isinstance(fig1, pyplot.Figure)
+
+
+@pytest.mark.parametrize(("value", "expected"), [
+    (None, []),
+    ("", []),
+    ([], []),
+    ('a', ['a']),
+    ([1, 2, 3], [1, 2, 3]),
+])
+def test_at_least_empty_list(value, expected):
+    result = validate.at_least_empty_list(value)
+    assert result == expected
+

@@ -17,3 +17,10 @@ def axes_object(ax):
         raise ValueError(msg)
 
     return fig, ax
+
+
+def at_least_empty_list(value):
+    if value is None or '':
+        return []
+    else:
+        return list(value)
