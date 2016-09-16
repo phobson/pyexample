@@ -36,7 +36,7 @@ before_install:
 # We just set up a conda environment with the right Python version.
 # This should not need changing.
 install:
-  - conda create --yes -n test python=$TRAVIS_PYTHON_VERSION numpy matplotlib docopt requests pyyaml
+  - conda create --yes -n test python=$TRAVIS_PYTHON_VERSION numpy matplotlib docopt requests pyyaml pandas seaborn
   - source activate test
   - conda install --yes --channel=conda-forge ${TESTERS}
   - if [ ${COVERAGE} = true ]; then conda install scipy --yes; fi
